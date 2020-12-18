@@ -20,6 +20,6 @@ class TestGetHistoricalStockQuotes(TestCase):
         end_date = '2020-12-16'
 
         result = get_historical_stock_quotes(start_date, end_date, stock_ticker)
-        print(len(result))
+
         self.assertIsInstance(result, list)
         self.assertEqual(2, len(result))
