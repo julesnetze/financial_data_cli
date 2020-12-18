@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from stock_quotes import get_historical_stock_quotes
 
-stock_ticker_APPLE = 'AAPL'
+stock_ticker = 'AAPL'
 
 
 class TestGetHistoricalStockQuotes(TestCase):
@@ -11,7 +11,7 @@ class TestGetHistoricalStockQuotes(TestCase):
         start_date = '2020-12-15'
         end_date = '2020-12-15'
 
-        result = get_historical_stock_quotes(start_date, end_date, stock_ticker_APPLE)
+        result = get_historical_stock_quotes(start_date, end_date, stock_ticker)
 
         self.assertIsInstance(result, float)
 
@@ -19,7 +19,7 @@ class TestGetHistoricalStockQuotes(TestCase):
         start_date = '2020-12-15'
         end_date = '2020-12-16'
 
-        result = get_historical_stock_quotes(start_date, end_date, stock_ticker_APPLE)
-
+        result = get_historical_stock_quotes(start_date, end_date, stock_ticker)
+        print(len(result))
         self.assertIsInstance(result, list)
-        self.assertEqual(len(result), 2)
+        self.assertEqual(2, len(result))

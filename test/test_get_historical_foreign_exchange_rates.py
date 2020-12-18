@@ -19,6 +19,6 @@ class TestGetForeignExchangeRate(TestCase):
         currency = 'EUR'
 
         result = get_historical_foreign_exchange_rates(start_date, end_date, currency)
-
+        print(result)
         self.assertIsInstance(result, list)
-        self.assertEqual(len(result), 2)
+        self.assertEqual(2, len(result))

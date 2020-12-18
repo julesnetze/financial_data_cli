@@ -5,9 +5,9 @@
     3. Convert into another foreign currency
 
 """
-from datetime import datetime, timezone
-
 import requests
+
+from convert_date_to_unix import convert_to_unix_date
 
 token = 'bvdnnkf48v6qmf0gg1s0'
 base_url = 'https://finnhub.io/api/v1'
@@ -35,16 +35,6 @@ def get_historical_stock_quotes(start_date, end_date, stock_ticker):
         final_number = [r.json()["c"][0], r.json()["c"][-1]]
 
     return final_number
-
-
-def convert_to_unix_date(date):
-    date_list = date.split('-')
-    year = int(date_list[0])
-    month = int(date_list[1])
-    day = int(date_list[2])
-    date = int(datetime(year, month, day, 0, 0, tzinfo=timezone.utc).timestamp())
-    return date
-
 
 def get_historical_foreign_exchange_rates(start_date, end_date, currency_to_exchange_to):
     start_date = convert_to_unix_date(start_date)
