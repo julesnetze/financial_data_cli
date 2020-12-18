@@ -21,25 +21,42 @@ def get_latest_stock_quote(stock_ticker):
     return final_number
 
 
-def get_historical_stock_quote(start_date, end_date, stock_ticker):
-    date_list = start_date.split('-')
-    year = int(date_list[0])
-    month = int(date_list[1])
-    day = int(date_list[2])
-    start_date = int(datetime(year, month, day, 0, 0, tzinfo=timezone.utc).timestamp())
+def get_historical_stock_quotes(start_date, end_date, stock_ticker):
+    start_date = convert_to_unix_date(start_date)
 
-    date_list = end_date.split('-')
-    year = int(date_list[0])
-    month = int(date_list[1])
-    day = int(date_list[2])
-    end_date = int(datetime(year, month, day, 0, 0, tzinfo=timezone.utc).timestamp())
+    end_date = convert_to_unix_date(end_date)
 
     r = requests.get(
         f'{base_url}/stock/candle?symbol={stock_ticker}&resolution=1&from={start_date}&to={end_date}&token={token}')
 
-    if (start_date == end_date):
+    if start_date == end_date:
         final_number = r.json()["c"][0]
     else:
         final_number = [r.json()["c"][0], r.json()["c"][-1]]
+
+    return final_number
+
+
+def convert_to_unix_date(date):
+    date_list = date.split('-')
+    year = int(date_list[0])
+    month = int(date_list[1])
+    day = int(date_list[2])
+    date = int(datetime(year, month, day, 0, 0, tzinfo=timezone.utc).timestamp())
+    return date
+
+
+def get_historical_foreign_exchange_rates(start_date, end_date, currency_to_exchange_to):
+    start_date = convert_to_unix_date(start_date)
+
+    end_date = convert_to_unix_date(end_date)
+
+    r = requests.get(
+        f'{base_url}/forex/candle?symbol=OANDA:{currency_to_exchange_to}_USD&resolution=D&from={start_date}&to={end_date}&token={token}')
+
+    if start_date == end_date:
+        final_number = 1 / r.json()["c"][0]
+    else:
+        final_number = [1 / r.json()["c"][0], 1 / r.json()["c"][-1]]
 
     return final_number
