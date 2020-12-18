@@ -20,6 +20,12 @@ def get_latest_stock_quote(stock_ticker):
 
     return final_number
 
+def get_latest_foreign_exchange_rate(currency_to_exchange_to):
+    r = requests.get(f'{base_url}/forex/rates?base=USD&token={token}')
+
+    final_number = r.json()["quote"][currency_to_exchange_to]
+
+    return final_number
 
 def get_historical_stock_quotes(start_date, end_date, stock_ticker):
     start_date = convert_to_unix_date(start_date)
