@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from stock_quotes import get_historical_stock_quote
+from model.api_calls import get_historical_stock_quote
 
 
 class TestGetHistoricalStockQuotes(TestCase):

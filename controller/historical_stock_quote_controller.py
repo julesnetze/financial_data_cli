@@ -1,4 +1,4 @@
-from stock_quotes import get_historical_stock_quote
+from model.api_calls import get_historical_stock_quote
 from view.options_messages import third_option, third_option_output
 
 

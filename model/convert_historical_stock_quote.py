@@ -1,4 +1,4 @@
-from stock_quotes import get_historical_stock_quote, get_historical_foreign_exchange_rate
+from model.api_calls import get_historical_stock_quote, get_historical_foreign_exchange_rate
 
 
 def convert_historical_stock_quote(date, ticker, currency):

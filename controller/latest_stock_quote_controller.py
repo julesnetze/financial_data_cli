@@ -1,4 +1,4 @@
-from stock_quotes import get_latest_stock_quote
+from model.api_calls import get_latest_stock_quote
 from view.options_messages import first_option, first_option_output
 
 

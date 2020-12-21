@@ -1,5 +1,5 @@
-def options_message():
-    options_message = """
+def options_menu():
+    message = """
     What would you like to do?
 
     1 - Obtain Latest Stock Quote
@@ -8,7 +8,7 @@ def options_message():
     4 - Obtain Historical Stock Quote in Specific Currency
     5 - Exit
 """
-    return options_message
+    return message
 
 
 def first_option():

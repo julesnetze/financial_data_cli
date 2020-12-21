@@ -1,5 +1,5 @@
-def render_welcome_message():
-    welcome_message = """
+def welcome_message():
+    message = """
     Welcome to the Financial Data CLI Application!
 """
-    return welcome_message
+    return message

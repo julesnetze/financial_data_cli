@@ -1,4 +1,4 @@
-from stock_quotes import get_latest_stock_quote, get_latest_foreign_exchange_rate
+from model.api_calls import get_latest_stock_quote, get_latest_foreign_exchange_rate
 
 
 def convert_latest_stock_quote(stock_ticker, currency_to_exchange_to):

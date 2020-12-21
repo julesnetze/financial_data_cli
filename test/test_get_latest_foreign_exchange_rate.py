@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from stock_quotes import get_latest_foreign_exchange_rate
+from model.api_calls import get_latest_foreign_exchange_rate
 
 
 class TestGetLatestForeignExchangeRates(TestCase):

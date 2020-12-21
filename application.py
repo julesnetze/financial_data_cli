@@ -4,16 +4,16 @@ from controller.historical_stock_quote_controller import HistoricalStockQuoteCon
 from controller.historical_stock_quote_converter_controller import HistoricalStockQuoteConverterController
 from controller.latest_stock_quote_controller import LatestStockQuoteController
 from controller.latest_stock_quote_converter_controller import LatestStockQuoteConverterController
-from view.options_messages import options_message
-from view.welcome_message import render_welcome_message
+from controller.main_controller import Controller
 
-print(render_welcome_message())
-print(options_message())
-
+controller = Controller()
 latest_stock_quote_controller = LatestStockQuoteController()
 latest_stock_quote_converter_controller = LatestStockQuoteConverterController()
 historical_stock_quote_controller = HistoricalStockQuoteController()
 historical_stock_quote_converter_controller = HistoricalStockQuoteConverterController()
+
+print(controller.render_welcome_message())
+print(controller.render_options_menu())
 
 action = 0
 while action != 5:
@@ -53,4 +53,4 @@ while action != 5:
         print(historical_stock_quote_converter_controller.render_option_ouput(quote, currency))
 
     time.sleep(5)
-    print(options_message())
+    print(controller.render_options_menu())

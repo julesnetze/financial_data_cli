@@ -1,39 +1,42 @@
 import requests
 
-from convert_date_to_unix import convert_to_unix_date
+from model.convert_date_to_unix import convert_to_unix_date
 
 token = 'bvdnnkf48v6qmf0gg1s0'
 base_url = 'https://finnhub.io/api/v1'
 
 
 def get_latest_stock_quote(ticker):
-    r = requests.get(f'{base_url}/quote?symbol={ticker}&token={token}')
+    response = requests.get(f'{base_url}/quote?symbol={ticker}&token={token}')
 
-    final_number = r.json()["c"]
+    stock_quote = response.json()["c"]
 
-    return final_number
+    return stock_quote
+
 
 def get_latest_foreign_exchange_rate(currency):
-    r = requests.get(f'{base_url}/forex/rates?base=USD&token={token}')
+    response = requests.get(f'{base_url}/forex/rates?base=USD&token={token}')
 
-    final_number = r.json()["quote"][currency]
+    exchange_rate = response.json()["quote"][currency]
 
-    return final_number
+    return exchange_rate
+
 
 def get_historical_stock_quote(date, ticker):
     date = convert_to_unix_date(date)
 
-    r = requests.get(
+    response = requests.get(
         f'{base_url}/stock/candle?symbol={ticker}&resolution=1&from={date}&to={date}&token={token}')
-    final_number = r.json()["c"][0]
+    stock_quote = response.json()["c"][0]
 
-    return final_number
+    return stock_quote
+
 
 def get_historical_foreign_exchange_rate(date, currency):
     date = convert_to_unix_date(date)
 
-    r = requests.get(
+    response = requests.get(
         f'{base_url}/forex/candle?symbol=OANDA:{currency}_USD&resolution=D&from={date}&to={date}&token={token}')
-    final_number = 1 / r.json()["c"][0]
+    exchange_rate = 1 / response.json()["c"][0]
 
-    return final_number
+    return exchange_rate
