@@ -1,0 +1,14 @@
+from unittest import TestCase
+
+from stock_quotes import get_historical_stock_quote
+
+
+class TestGetHistoricalStockQuotes(TestCase):
+
+    def test_one_date(self):
+        ticker = 'AAPL'
+        date = '2020-12-15'
+
+        result = get_historical_stock_quote(date, ticker)
+
+        self.assertIsInstance(result, float)

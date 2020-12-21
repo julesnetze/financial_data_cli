@@ -1,58 +1,51 @@
 import time
 
-from model.convert_historical_stock_quotes import convert_historical_stock_quotes
-from model.convert_latest_stock_quote import convert_latest_stock_quote
-from stock_quotes import get_latest_stock_quote, get_historical_stock_quotes
-from view.render_options_message import render_options_message
-from view.render_welcome_message import render_welcome_message
-
-first_option_message = """
-    Insert the Stock Ticker to Obtain Latest Stock Quote
-"""
-
-second_option_message = """
-    Insert the Stock Ticker and Currency to Obtain Latest Stock Quote in Specific Currency
-"""
-
-third_option_message = """
-    Insert the Stock Ticker and the Date to Obtain Historical Stock Quote
-"""
+from controller.historical_stock_quote_controller import HistoricalStockQuoteController
+from controller.latest_stock_quote_controller import LatestStockQuoteController
+from controller.latest_stock_quote_converter_controller import LatestStockQuoteConverterController
+from model.convert_historical_stock_quotes import convert_historical_stock_quote
+from stock_quotes import get_historical_stock_quote
+from view.options_messages import options_message
+from view.welcome_message import render_welcome_message
 
 fourth_option_message = """
     Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency
 """
 
 print(render_welcome_message())
-print(render_options_message())
+print(options_message())
+
+latest_stock_quote_controller = LatestStockQuoteController()
+latest_stock_quote_converter_controller = LatestStockQuoteConverterController()
+historical_stock_quote_controller = HistoricalStockQuoteController()
 
 action = 0
 while action != 5:
     action = int(input("?: "))
 
     if (action == 1):
-        print(first_option_message)
+        print(latest_stock_quote_controller.render_option_message())
 
         ticker = (input("Ticker: "))
+        quote = latest_stock_quote_controller.latest_stock_quote(ticker)
 
-        print(f'{get_latest_stock_quote(ticker)} USD')
-
+        print(latest_stock_quote_controller.render_option_ouput(quote))
     elif (action == 2):
-        print(second_option_message)
+        print(latest_stock_quote_converter_controller.render_option_message())
 
         ticker = (input("Ticker: "))
-
         currency = (input("Currency: "))
+        quote = latest_stock_quote_converter_controller.convert_latest_stock_quote(ticker, currency)
 
-        print(f'{convert_latest_stock_quote(ticker, currency)} {currency}')
-
+        print(latest_stock_quote_converter_controller.render_option_ouput(quote, currency))
     elif(action == 3):
-        print(third_option_message)
+        print(historical_stock_quote_controller.render_option_message())
 
         ticker = (input("Ticker: "))
-
         date = (input("Date: "))
+        quote = historical_stock_quote_controller.historical_stock_quote(date, ticker)
 
-        print(f'{get_historical_stock_quotes(date, date, ticker)} USD')
+        print(historical_stock_quote_controller.render_option_ouput(quote))
 
     elif(action == 4):
         print(fourth_option_message)
@@ -63,7 +56,7 @@ while action != 5:
 
         date = (input("Date: "))
 
-        print(f'{convert_historical_stock_quotes(date, date, ticker, currency)} {currency}')
+        print(f'{convert_historical_stock_quote(date, date, ticker, currency)} {currency}')
 
     time.sleep(5)
-    print(render_options_message())
+    print(options_message())
