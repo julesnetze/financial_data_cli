@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from convert_latest_stock_quote import convert_latest_stock_quote
+from model.convert_latest_stock_quote import convert_latest_stock_quote
 
 
 class TestConvertLatestStockQuote(TestCase):

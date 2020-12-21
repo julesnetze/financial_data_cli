@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from convert_historical_stock_quotes import convert_historical_stock_quotes
+from model.convert_historical_stock_quotes import convert_historical_stock_quotes
 
 stock_ticker = 'AAPL'
 

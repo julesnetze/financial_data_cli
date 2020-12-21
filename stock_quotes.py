@@ -1,10 +1,3 @@
-"""convert and print historical stock quotes in any foreign currency (base currency is USD)
-
-    1. GET historical stock quote
-    2. GET historical foreign exchange rates
-    3. Convert into another foreign currency
-
-"""
 import requests
 
 from convert_date_to_unix import convert_to_unix_date
