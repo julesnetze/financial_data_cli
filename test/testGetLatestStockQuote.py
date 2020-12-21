@@ -9,3 +9,9 @@ class TestGetLatestStockQuote(TestCase):
         result = get_latest_stock_quote('AAPL')
 
         self.assertIsInstance(result, float)
+
+    def test_should_return_zero_when_ticker_does_not_exist(self):
+        result = get_latest_stock_quote('Foo')
+
+        self.assertEqual(0, result)
+

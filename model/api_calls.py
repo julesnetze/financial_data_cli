@@ -8,17 +8,13 @@ base_url = 'https://finnhub.io/api/v1'
 
 def get_latest_stock_quote(ticker):
     response = requests.get(f'{base_url}/quote?symbol={ticker}&token={token}')
-
     stock_quote = response.json()["c"]
-
     return stock_quote
 
 
 def get_latest_foreign_exchange_rate(currency):
     response = requests.get(f'{base_url}/forex/rates?base=USD&token={token}')
-
     exchange_rate = response.json()["quote"][currency]
-
     return exchange_rate
 
 

@@ -9,3 +9,8 @@ class TestGetLatestForeignExchangeRates(TestCase):
         result = get_latest_foreign_exchange_rate('EUR')
 
         self.assertIsInstance(result, float)
+
+    def test_should_raise_error_when_currency_does_not_exist(self):
+        with self.assertRaises(KeyError):
+            get_latest_foreign_exchange_rate('Foo')
+

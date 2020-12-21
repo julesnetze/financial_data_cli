@@ -58,4 +58,5 @@ def application():
         time.sleep(5)
 
 
-application()
+if __name__ == '__main__':
+    application()

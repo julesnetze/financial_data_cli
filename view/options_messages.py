@@ -13,7 +13,7 @@ def options_menu():
 
 def first_option():
     message = """
-    Insert the Stock Ticker to Obtain Latest Stock Quote(e.g. AAPL)
+    Insert the Stock Ticker to Obtain Latest Stock Quote (e.g. AAPL)
 """
     return message
 
@@ -26,7 +26,7 @@ def first_option_output(quote):
 
 def second_option():
     message = """
-    Insert the Stock Ticker and Currency to Obtain Latest Stock Quote in Specific Currency(e.g. AAPL, EUR)
+    Insert the Stock Ticker and Currency to Obtain Latest Stock Quote in Specific Currency (e.g. AAPL - EUR)
 """
     return message
 
@@ -39,7 +39,7 @@ def second_option_ouput(quote, currency):
 
 def third_option():
     message = """
-    Insert the Stock Ticker and the Date to Obtain Historical Stock Quote (e.g. AAPL, 2020-12-15)
+    Insert the Stock Ticker and the Date to Obtain Historical Stock Quote (e.g. AAPL - 2020-12-15)
 """
     return message
 
@@ -51,7 +51,7 @@ def third_option_output(quote):
 
 
 def fourth_option():
-    message = """Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency(e.g. AAPL, EUR, 2020-12-15) """
+    message = """Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency (e.g. AAPL - EUR - 2020-12-15) """
     return message
 
 
