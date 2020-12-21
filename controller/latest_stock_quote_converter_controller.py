@@ -10,5 +10,5 @@ class LatestStockQuoteConverterController:
     def convert_latest_stock_quote(self, ticker, currency):
         return convert_latest_stock_quote(ticker, currency)
 
-    def render_option_ouput(self, quote, currency):
+    def render_option_output(self, quote, currency):
         return second_option_ouput(quote, currency)

@@ -10,5 +10,5 @@ class HistoricalStockQuoteController:
     def historical_stock_quote(self, date, ticker):
         return get_historical_stock_quote(date, ticker)
 
-    def render_option_ouput(self, quote):
+    def render_option_output(self, quote):
         return third_option_output(quote)

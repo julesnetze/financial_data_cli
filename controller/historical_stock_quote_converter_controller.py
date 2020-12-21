@@ -10,5 +10,5 @@ class HistoricalStockQuoteConverterController:
     def convert_historical_stock_quote(self, date, ticker, currency):
         return convert_historical_stock_quote(date, ticker, currency)
 
-    def render_option_ouput(self, quote, currency):
+    def render_option_output(self, quote, currency):
         return fourth_option_output(quote, currency)

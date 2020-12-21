@@ -10,7 +10,7 @@ class LatestStockQuoteController:
     def latest_stock_quote(self, ticker):
         return get_latest_stock_quote(ticker)
 
-    def render_option_ouput(self, quote):
+    def render_option_output(self, quote):
         return first_option_output(quote)
 
 

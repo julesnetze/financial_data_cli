@@ -19,7 +19,8 @@ def first_option():
 
 
 def first_option_output(quote):
-    message = f'{quote} USD'
+    quote_formatted = "{:.2f}".format(quote)
+    message = f'{quote_formatted} USD'
     return message
 
 
@@ -31,7 +32,8 @@ def second_option():
 
 
 def second_option_ouput(quote, currency):
-    message = f'{quote} {currency}'
+    quote_formatted = "{:.2f}".format(quote)
+    message = f'{quote_formatted} {currency}'
     return message
 
 
@@ -43,7 +45,8 @@ def third_option():
 
 
 def third_option_output(quote):
-    message = f'{quote} USD'
+    quote_formatted = "{:.2f}".format(quote)
+    message = f'{quote_formatted} USD'
     return message
 
 
@@ -55,5 +58,6 @@ def fourth_option():
 
 
 def fourth_option_output(quote, currency):
-    message = f'{quote} {currency}'
+    quote_formatted = "{:.2f}".format(quote)
+    message = f'{quote_formatted} {currency}'
     return message
