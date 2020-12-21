@@ -10,15 +10,18 @@ def options_message():
 """
     return options_message
 
+
 def first_option():
     message = """
     Insert the Stock Ticker to Obtain Latest Stock Quote
 """
     return message
 
+
 def first_option_output(quote):
     message = f'{quote} USD'
     return message
+
 
 def second_option():
     message = """
@@ -26,9 +29,11 @@ def second_option():
 """
     return message
 
+
 def second_option_ouput(quote, currency):
     message = f'{quote} {currency}'
     return message
+
 
 def third_option():
     message = """
@@ -36,6 +41,19 @@ def third_option():
 """
     return message
 
+
 def third_option_output(quote):
     message = f'{quote} USD'
+    return message
+
+
+def fourth_option():
+    message = """
+    Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency
+"""
+    return message
+
+
+def fourth_option_output(quote, currency):
+    message = f'{quote} {currency}'
     return message
