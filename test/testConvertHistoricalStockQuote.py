@@ -2,11 +2,11 @@ from unittest import TestCase
 
 from model.convert_historical_stock_quote import convert_historical_stock_quote
 
-ticker = 'AAPL'
 
 class TestConvertHistoricalStockQuotes(TestCase):
 
-    def test_one_date(self):
+    def test_should_return_float(self):
+        ticker = 'AAPL'
         date = '2020-12-15'
         currency = 'EUR'
 
