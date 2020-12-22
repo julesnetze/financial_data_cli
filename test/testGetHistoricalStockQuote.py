@@ -13,14 +13,14 @@ class TestGetHistoricalStockQuotes(TestCase):
 
         self.assertIsInstance(result, float)
 
-    def test_should_return_error_when_ticker_does_not_exist(self):
+    def test_should_raise_an_error_when_ticker_does_not_exist(self):
         ticker = 'Foo'
         date = '2020-12-15'
 
         with self.assertRaises(KeyError):
             get_historical_stock_quote(date, ticker)
 
-    def test_should_return_error_when_date_is_invalid(self):
+    def test_should_raise_an_error_when_date_is_invalid(self):
         ticker = 'AAPL'
         date = '2000-01-01'
 

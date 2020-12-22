@@ -9,6 +9,8 @@ base_url = 'https://finnhub.io/api/v1'
 def get_latest_stock_quote(ticker):
     response = requests.get(f'{base_url}/quote?symbol={ticker}&token={token}')
     stock_quote = response.json()["c"]
+    if stock_quote == 0:
+        raise KeyError
     return stock_quote
 
 

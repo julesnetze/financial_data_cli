@@ -25,36 +25,42 @@ def application():
             print(latest_stock_quote_controller.render_option_message())
 
             ticker = (input("Ticker: "))
-            quote = latest_stock_quote_controller.latest_stock_quote(ticker)
-
-            print(latest_stock_quote_controller.render_option_output(quote))
+            try:
+                quote = latest_stock_quote_controller.latest_stock_quote(ticker)
+                print(latest_stock_quote_controller.render_option_output(quote))
+            except KeyError:
+                print(message_controller.render_error_message())
         elif action == 2:
             print(latest_stock_quote_converter_controller.render_option_message())
 
             ticker = (input("Ticker: "))
             currency = (input("Currency: "))
-            quote = latest_stock_quote_converter_controller.convert_latest_stock_quote(ticker, currency)
-
-            print(latest_stock_quote_converter_controller.render_option_output(quote, currency))
+            try:
+                quote = latest_stock_quote_converter_controller.convert_latest_stock_quote(ticker, currency)
+                print(latest_stock_quote_converter_controller.render_option_output(quote, currency))
+            except KeyError:
+                print(message_controller.render_error_message())
         elif action == 3:
             print(historical_stock_quote_controller.render_option_message())
 
             ticker = (input("Ticker: "))
             date = (input("Date: "))
-            quote = historical_stock_quote_controller.historical_stock_quote(date, ticker)
-
-            print(historical_stock_quote_controller.render_option_output(quote))
-
+            try:
+                quote = historical_stock_quote_controller.historical_stock_quote(date, ticker)
+                print(historical_stock_quote_controller.render_option_output(quote))
+            except KeyError or ValueError:
+                print(message_controller.render_error_message())
         elif action == 4:
             print(historical_stock_quote_converter_controller.render_option_message())
 
             ticker = (input("Ticker: "))
             currency = (input("Currency: "))
             date = (input("Date: "))
-            quote = historical_stock_quote_converter_controller.convert_historical_stock_quote(date, ticker, currency)
-
-            print(historical_stock_quote_converter_controller.render_option_output(quote, currency))
-
+            try:
+                quote = historical_stock_quote_converter_controller.convert_historical_stock_quote(date, ticker, currency)
+                print(historical_stock_quote_converter_controller.render_option_output(quote, currency))
+            except KeyError or ValueError:
+                print(message_controller.render_error_message())
         time.sleep(5)
 
 

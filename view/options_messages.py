@@ -51,7 +51,9 @@ def third_option_output(quote):
 
 
 def fourth_option():
-    message = """Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency (e.g. AAPL - EUR - 2020-12-15) """
+    message = """
+    Insert the Stock Ticker, the Currency and the Date to Obtain Historical Stock Quote in Specific Currency (e.g. AAPL - EUR - 2020-12-15) 
+"""
     return message
 
 

@@ -12,14 +12,14 @@ class TestGetForeignExchangeRate(TestCase):
 
         self.assertIsInstance(result, float)
 
-    def test_should_raise_when_currency_does_not_exist(self):
+    def test_should_raise_an_error_when_currency_does_not_exist(self):
         date = '2020-12-15'
         currency = 'Foo'
 
         with self.assertRaises(KeyError):
             get_historical_foreign_exchange_rate(date, currency)
 
-    def test_should_raise_error_when_date_is_invalid(self):
+    def test_should_raise_an_error_when_date_is_invalid(self):
         date = '2000-01-01'
         currency = 'EUR'
 
